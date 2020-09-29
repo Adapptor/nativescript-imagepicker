@@ -1,3 +1,4 @@
+@NativeClass()
 declare class QBAlbumCell extends UITableViewCell {
     static alloc(): QBAlbumCell; // inherited from NSObject
 
@@ -28,6 +29,7 @@ declare class QBAlbumCell extends UITableViewCell {
     titleLabel: UILabel;
 }
 
+@NativeClass()
 declare class QBAlbumsViewController extends UITableViewController {
 
     static alloc(): QBAlbumsViewController; // inherited from NSObject
@@ -37,6 +39,7 @@ declare class QBAlbumsViewController extends UITableViewController {
     imagePickerController: QBImagePickerController;
 }
 
+@NativeClass()
 declare class QBAssetCell extends UICollectionViewCell {
 
     static alloc(): QBAssetCell; // inherited from NSObject
@@ -62,6 +65,7 @@ declare class QBAssetCell extends UICollectionViewCell {
     videoIndicatorView: QBVideoIndicatorView;
 }
 
+@NativeClass()
 declare class QBAssetsViewController extends UICollectionViewController {
 
     static alloc(): QBAssetsViewController; // inherited from NSObject
@@ -73,6 +77,7 @@ declare class QBAssetsViewController extends UICollectionViewController {
     imagePickerController: QBImagePickerController;
 }
 
+@NativeClass()
 declare class QBCheckmarkView extends UIView {
 
     static alloc(): QBCheckmarkView; // inherited from NSObject
@@ -102,6 +107,7 @@ declare class QBCheckmarkView extends UIView {
     checkmarkLineWidth: number;
 }
 
+@NativeClass()
 declare class QBImagePickerController extends UIViewController {
 
     static alloc(): QBImagePickerController; // inherited from NSObject
@@ -131,6 +137,7 @@ declare class QBImagePickerController extends UIViewController {
     showsNumberOfSelectedAssets: boolean;
 }
 
+@NativeClass()
 interface QBImagePickerControllerDelegate extends NSObjectProtocol {
 
     qb_imagePickerControllerDidCancel?(imagePickerController: QBImagePickerController): void;
@@ -161,6 +168,7 @@ declare const enum QBImagePickerMediaType {
     Video = 2
 }
 
+@NativeClass()
 declare class QBSlomoIconView extends UIView {
 
     static alloc(): QBSlomoIconView; // inherited from NSObject
@@ -182,6 +190,7 @@ declare class QBSlomoIconView extends UIView {
     iconColor: UIColor;
 }
 
+@NativeClass()
 declare class QBVideoIconView extends UIView {
 
     static alloc(): QBVideoIconView; // inherited from NSObject
@@ -203,6 +212,7 @@ declare class QBVideoIconView extends UIView {
     iconColor: UIColor;
 }
 
+@NativeClass()
 declare class QBVideoIndicatorView extends UIView {
 
     static alloc(): QBVideoIndicatorView; // inherited from NSObject

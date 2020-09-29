@@ -1,7 +1,4 @@
-import { Observable } from "tns-core-modules/data/observable";
-import { ImageSource } from "tns-core-modules/image-source";
-import { ImageAsset } from "tns-core-modules/image-asset";
-import { View } from "tns-core-modules/ui/core/view/view";
+import {Observable, ImageSource, ImageAsset, View} from "@nativescript/core";
 
 export class ImagePicker {
 

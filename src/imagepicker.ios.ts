@@ -1,9 +1,7 @@
-import * as data_observable from "tns-core-modules/data/observable";
-import * as imageAssetModule from "tns-core-modules/image-asset";
 import { Options, ImagePickerMediaType } from "./imagepicker.common";
-import { View } from "tns-core-modules/ui/core/view/view";
-import * as utils from "tns-core-modules/utils/utils";
 export * from "./imagepicker.common";
+
+import {Observable, ImageAsset, View, Utils} from "@nativescript/core";
 
 const defaultAssetCollectionSubtypes: NSArray<any> = NSArray.arrayWithArray(<any>[
     PHAssetCollectionSubtype.SmartAlbumRecentlyAdded,
@@ -18,7 +16,8 @@ const defaultAssetCollectionSubtypes: NSArray<any> = NSArray.arrayWithArray(<any
     PHAssetCollectionSubtype.SmartAlbumLivePhotos
 ]);
 
-export class ImagePicker extends data_observable.Observable {
+@NativeClass()
+export class ImagePicker extends Observable {
     _imagePickerController: QBImagePickerController;
     _hostView: View;
 
@@ -87,6 +86,7 @@ export class ImagePicker extends data_observable.Observable {
     }
 }
 
+@NativeClass()
 export class ImagePickerControllerDelegate extends NSObject implements QBImagePickerControllerDelegate {
     _resolve: any;
     _reject: any;
@@ -102,9 +102,8 @@ export class ImagePickerControllerDelegate extends NSObject implements QBImagePi
         let assets = [];
 
         for (let i = 0; i < iosAssets.count; i++) {
-            let asset = new imageAssetModule.ImageAsset(iosAssets[i]);
+            let asset = new ImageAsset(iosAssets[i]);
 
-            // this fixes the image aspect ratio in tns-core-modules version < 4.0
             if (!asset.options) {
                 asset.options = { keepAspectRatio: true };
             }
@@ -119,7 +118,7 @@ export class ImagePickerControllerDelegate extends NSObject implements QBImagePi
             // FIX: possible memory issue when picking images many times.
             // Not the best solution, but the only one working for now
             // https://github.com/NativeScript/nativescript-imagepicker/issues/222
-            setTimeout(utils.GC, 200);
+            setTimeout(Utils.GC, 200);
         });
 
     }
